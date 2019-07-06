@@ -1,32 +1,32 @@
-describe('driver', function() {
+describe('driver', function () {
   let driver;
   before(() => {
     driver = new Driver('Alfie', 'Jan 1, 1995');
   });
 
-  describe('creating a new driver', function() {
-    it('can create a Driver with a name and startDate', function() {
+  describe('creating a new driver', function () {
+    it('can create a Driver with a name and startDate', function () {
       expect(driver.name).to.equal('Alfie');
     });
 
     // This test throws false negatives for some reason
     // it('sets the driver startDate as a date object', function() {
-      // expect(driver.startDate).to.be.instanceof(Date);
+    // expect(driver.startDate).to.be.instanceof(Date);
     // });
   });
 
-  describe('yearsExperienceFromBeginningOf', function() {
-    it('calculates the number of years driven given an endDate', function() {
+  describe('yearsExperienceFromBeginningOf', function () {
+    it('calculates the number of years driven given an endDate', function () {
       expect(driver.yearsExperienceFromBeginningOf('2017')).to.equal(22);
     });
   });
 });
 
-describe('Route', function() {
+describe('Route', function () {
   let route;
 
-  describe('blocksTravelled', function() {
-    it('calculates the number of blocksTravelled', function() {
+  describe('blocksTravelled', function () {
+    it('calculates the number of blocksTravelled', function () {
       let route = new Route(
         { horizontal: 'Park', vertical: '34' },
         { horizontal: 'Park', vertical: '45' }
@@ -34,7 +34,7 @@ describe('Route', function() {
       expect(route.blocksTravelled()).to.equal(11);
     });
 
-    it('calculates the number of horizontal blocks travelled', function() {
+    it('calculates the number of horizontal blocks travelled', function () {
       let route = new Route(
         { horizontal: '1st Avenue', vertical: '34' },
         { horizontal: 'Park', vertical: '34' }
@@ -42,7 +42,7 @@ describe('Route', function() {
       expect(route.blocksTravelled()).to.equal(4);
     });
 
-    it('combines horizontal and vertical blocks travelled', function() {
+    it('combines horizontal and vertical blocks travelled', function () {
       let route = new Route(
         { horizontal: '1st Avenue', vertical: '34' },
         { horizontal: 'Park', vertical: '45' }
@@ -51,8 +51,8 @@ describe('Route', function() {
     });
   });
 
-  describe('estimatedTime', function() {
-    it('estimates time in minutes, with travel time of three blocks in a minute', function() {
+  describe('estimatedTime', function () {
+    it('estimates time in minutes, with travel time of three blocks in a minute', function () {
       let route = new Route(
         { horizontal: '1st Avenue', vertical: '34' },
         { horizontal: 'Park', vertical: '45' }
@@ -60,7 +60,7 @@ describe('Route', function() {
       expect(route.estimatedTime()).to.equal(5);
     });
 
-    it('estimates time in minutes, with travel time of two blocks in a minute during peak hours', function() {
+    it('estimates time in minutes, with travel time of two blocks in a minute during peak hours', function () {
       let route = new Route(
         { horizontal: '1st Avenue', vertical: '34' },
         { horizontal: 'Park', vertical: '46' }
